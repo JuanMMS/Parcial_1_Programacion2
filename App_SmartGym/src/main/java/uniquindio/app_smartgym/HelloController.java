@@ -1,4 +1,4 @@
-package org.example.programa_smartgym;
+package uniquindio.app_smartgym;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
