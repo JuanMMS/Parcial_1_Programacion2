@@ -4,5 +4,4 @@ module uniquindio.app_smartgym {
 
 
     opens uniquindio.app_smartgym to javafx.fxml;
-    exports uniquindio.app_smartgym;
 }
