@@ -1,8 +1,8 @@
-module org.example.programa_smartgym {
+module java {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
-
-    opens org.example.programa_smartgym to javafx.fxml;
-    exports org.example.programa_smartgym;
-}
+    opens app to javafx.fxml;
+    exports app;
+    }
