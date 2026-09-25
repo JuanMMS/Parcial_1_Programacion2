@@ -63,7 +63,7 @@ public class ServicioAdicional {
         this.precio = precio;
     }
 
-    public boolean isDisponibilidad() {
+    public boolean getDisponibilidad() {
         return disponibilidad;
     }
 

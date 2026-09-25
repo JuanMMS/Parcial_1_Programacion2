@@ -124,6 +124,13 @@ public class Gimnasio {
         return centinela;
     }
 
+    /**
+     * Metodo para actualizar un cliente del gimnasio, hace parte del crud
+     * @param identificacion
+     * @param actualizado
+     * @return boolean
+     */
+
     public boolean actualizarCliente(String identificacion, Cliente actualizado){
         boolean centinela = false;
         for (Cliente cliente : listClientes) {
@@ -180,11 +187,96 @@ public class Gimnasio {
         boolean centinela = false;
         for(Entrenador entrenadorDeLista : listEntrenadores){
             if(entrenadorDeLista.getIdentificacion().equals(identificacion)){
-                entrenador.setIdentificacion(identificacion);
-                entrenador.setNombre(entrenador.getNombre());
-                entrenador.setEspecialidad(entrenador.getEspecialidad());
-                entrenador.setTelefono(entrenador.getTelefono());
-                entrenador.setTarifaSesion(entrenador.getTarifaSesion());
+                entrenadorDeLista.setIdentificacion(identificacion);
+                entrenadorDeLista.setNombre(entrenador.getNombre());
+                entrenadorDeLista.setEspecialidad(entrenador.getEspecialidad());
+                entrenadorDeLista.setTelefono(entrenador.getTelefono());
+                entrenadorDeLista.setTarifaSesion(entrenador.getTarifaSesion());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para agregar planes de entrenamiento al gimnasio, parte del crud
+     * @param planEntrenamientoNuevo
+     * @return boolean
+     */
+    public boolean agregarPlanEntrenamiento(PlanEntrenamiento planEntrenamientoNuevo) {
+        boolean centinela = false;
+        if(!listEntrenadores.contains(planEntrenamientoNuevo)){
+        listPlanesEntrenamientos.add(planEntrenamientoNuevo);
+        centinela = true;
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para eliminar planes de entrenamiento del gimnasio, parte del crud
+     * @param numeroIdentificacion
+     * @return boolean
+     */
+    public boolean eliminarPlanEntrenamiento(String numeroIdentificacion) {
+        boolean centinela = false;
+        for (PlanEntrenamiento planEntrenamiento : listPlanesEntrenamientos) {
+            if (planEntrenamiento.getCodigo().equals(numeroIdentificacion)) {
+                listPlanesEntrenamientos.remove(planEntrenamiento);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para actualizar planes de entrenamiento del gimnasio, parte del crud
+     * @param identificacion
+     * @param planEntrenamientoNuevo
+     * @return boolean
+     */
+    public boolean actualizarPlanEntrenamiento(String identificacion, PlanEntrenamiento planEntrenamientoNuevo) {
+        boolean centinela = false;
+        for(PlanEntrenamiento planEntrenamiento : listPlanesEntrenamientos){
+            if(planEntrenamiento.getCodigo().equals(identificacion)) {
+                planEntrenamiento.setCodigo(identificacion);
+                planEntrenamiento.setNombre(planEntrenamientoNuevo.getNombre());
+                planEntrenamiento.setDescripcion(planEntrenamientoNuevo.getDescripcion());
+                planEntrenamiento.setDuracionMeses(planEntrenamientoNuevo.getDuracionMeses());
+                planEntrenamiento.setValorMensual(planEntrenamientoNuevo.getValorMensual());
+                planEntrenamiento.setEstado(planEntrenamientoNuevo.getEstado());
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para agregar Servicios adicionales al gimnasio, hace parte del crud
+     * @param servicioAdicional
+     * @return boolean
+     */
+    public boolean agregarServiciosAdicionales(ServicioAdicional servicioAdicional){
+        boolean centinela = false;
+        if(!listServiciosAdicionales.contains(servicioAdicional)){
+            listServiciosAdicionales.add(servicioAdicional);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+
+    /**
+     * metodo para eliminar servicios adicional del gimnasio, hace parte del crud
+     * @param numeroIdentificacion
+     * @return boolean
+     */
+    public boolean eliminarServiciosAdicionales(String numeroIdentificacion) {
+        boolean centinela = false;
+        for (ServicioAdicional servicioAdicional : listServiciosAdicionales) {
+            if (servicioAdicional.getCodigo().equals(numeroIdentificacion)) {
+                listServiciosAdicionales.remove(servicioAdicional);
                 centinela = true;
                 break;
             }
@@ -193,10 +285,29 @@ public class Gimnasio {
     }
 
 
+    /**
+     * metodo para actualizar servicio adicional del gimnasio, hace parte del crud
+     * @param codigo
+     * @param servicioAdicional
+     * @return boolean
+     */
+    public boolean actualizarServiciosAdicionales(String codigo, ServicioAdicional servicioAdicional) {
+        boolean centinela = false;
+        for (ServicioAdicional servicioAdicionalLista : listServiciosAdicionales) {
+            if (servicioAdicionalLista.getCodigo().equals(codigo)) {
+                servicioAdicionalLista.setCodigo(servicioAdicional.getCodigo());
+                servicioAdicionalLista.setNombre(servicioAdicional.getNombre());
+                servicioAdicionalLista.setDescripcion(servicioAdicional.getDescripcion());
+                servicioAdicionalLista.setDescripcion(servicioAdicional.getDescripcion());
+                servicioAdicionalLista.setPrecio(servicioAdicional.getPrecio());
+                servicioAdicionalLista.setDisponibilidad(servicioAdicional.getDisponibilidad());
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
 
 
-    public void CRUDPlanesEntrenamiento() {}
-    public void CRUDEntrenador() {}
     public void CRUDServiciosAdicionales() {}
     public void CRUDInscripcion() {}
     public void BuscarClientePorTelefono() {}
