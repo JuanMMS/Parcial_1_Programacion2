@@ -6,12 +6,12 @@ module uniquindio.app_smartgym {
     opens uniquindio.app_smartgym.app to javafx.fxml;
     exports uniquindio.app_smartgym.app;
 
-    opens uniquindio.app_smartgym.viewController to javafx.fxml;
-    exports uniquindio.app_smartgym.viewController;
+    opens uniquindio.app_smartgym.ViewController to javafx.fxml;
+    exports uniquindio.app_smartgym.ViewController;
 
     opens uniquindio.app_smartgym.model to javafx.fxml;
     exports uniquindio.app_smartgym.model;
 
-    opens uniquindio.app_smartgym.controller to javafx.fxml;
-    exports uniquindio.app_smartgym.controller;
+    opens uniquindio.app_smartgym.Controller to javafx.fxml;
+    exports uniquindio.app_smartgym.Controller;
 }
