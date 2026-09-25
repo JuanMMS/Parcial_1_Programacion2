@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Inscripcion {
+    private String iD;
     private LocalDate fechaInscripcion;
     private double valorAPagar;
 
@@ -21,7 +22,8 @@ public class Inscripcion {
     Ajustado estrictamente a la firma que aparece en la caja del UML:
     + Inscripcion(date fechaInscripcion, double valorAPagar, Cliente cliente, PlanEntrenamiento planEntrenamiento)
     */
-    public Inscripcion(LocalDate fechaInscripcion, double valorAPagar, Cliente cliente, PlanEntrenamiento planEntrenamiento) {
+    public Inscripcion(String iD, LocalDate fechaInscripcion, double valorAPagar, Cliente cliente, PlanEntrenamiento planEntrenamiento) {
+        this.iD = iD;
         this.fechaInscripcion = fechaInscripcion;
         this.valorAPagar = valorAPagar;
         this.cliente = cliente;
@@ -37,6 +39,15 @@ public class Inscripcion {
     public void CalcularValorAPagar() {}
 
     // Getters y Setters
+
+
+    public String getiD() {
+        return iD;
+    }
+
+    public void setiD(String iD) {
+        this.iD = iD;
+    }
 
     public LocalDate getFechaInscripcion() {
         return fechaInscripcion;
