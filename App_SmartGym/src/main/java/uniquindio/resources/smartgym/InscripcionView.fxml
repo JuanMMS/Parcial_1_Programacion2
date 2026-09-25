@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="700.0" prefWidth="900.0" spacing="15.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.app_smartgym.Controller.InscripcionController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+
+
+    <HBox alignment="CENTER_LEFT">
+        <Button fx:id="btnVolver" text="&lt; Volver al Menú" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-cursor: hand;" />
+    </HBox>
+
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Registro de Inscripciones" />
+
+    <GridPane hgap="15" vgap="15">
+        <!-- Selecciones principales -->
+        <Label text="Seleccionar Cliente:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ComboBox fx:id="cmbCliente" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Seleccionar Plan:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <ComboBox fx:id="cmbPlan" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+        <Label text="Fecha Inscripción:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <DatePicker fx:id="dpFechaInscripcion" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Asignar Entrenador:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <ComboBox fx:id="cmbEntrenador" prefWidth="200.0" promptText="(Opcional / Plan Personalizado)" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+        <!-- Selección Múltiple de Servicios (Relación 0..n) -->
+        <Label text="Servicios Adicionales:" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+        <ListView fx:id="lvServiciosDisponibles" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button fx:id="btnAgregarServicio" text="Añadir Servicio ->" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <ListView fx:id="lvServiciosAgregados" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    </GridPane>
+
+    <!-- Zona de cálculo según requerimiento del contexto -->
+    <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-background-color: #e8f6f3; -fx-padding: 10;">
+        <Button fx:id="btnCalcularPago" text="Calcular Valor Final" style="-fx-font-weight: bold;" />
+        <Label text="Valor a Pagar:" />
+        <TextField fx:id="txtValorAPagar" editable="false" style="-fx-font-weight: bold; -fx-text-fill: green;" />
+        <Button fx:id="btnRegistrarInscripcion" text="Registrar Inscripción" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+    </HBox>
+
+    <TableView fx:id="tblInscripciones" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colFecha" prefWidth="120.0" text="Fecha" />
+            <TableColumn fx:id="colCliente" prefWidth="200.0" text="Cliente" />
+            <TableColumn fx:id="colPlan" prefWidth="150.0" text="Plan" />
+            <TableColumn fx:id="colEntrenador" prefWidth="150.0" text="Entrenador" />
+            <TableColumn fx:id="colTotal" prefWidth="150.0" text="Total Pagado" />
+        </columns>
+    </TableView>
+</VBox>

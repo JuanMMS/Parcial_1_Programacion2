@@ -14,7 +14,7 @@ public class Cliente {
 
     // Relaciones (Multiplicidad 'n' mostradas en el diagrama UML mediante asociaciones)
     private List<Inscripcion> lstInscripcionesCliente;
-    private List<AbstractPlanEntrenamiento> lstPlanesEntrenamientoCliente;
+    private List<PlanEntrenamiento> lstPlanesEntrenamientoCliente;
 
     /*
     Constructor:
@@ -91,11 +91,11 @@ public class Cliente {
         this.lstInscripcionesCliente = lstInscripcionesCliente;
     }
 
-    public List<AbstractPlanEntrenamiento> getLstPlanesEntrenamientoCliente() {
+    public List<PlanEntrenamiento> getLstPlanesEntrenamientoCliente() {
         return lstPlanesEntrenamientoCliente;
     }
 
-    public void setLstPlanesEntrenamientoCliente(List<AbstractPlanEntrenamiento> lstPlanesEntrenamientoCliente) {
+    public void setLstPlanesEntrenamientoCliente(List<PlanEntrenamiento> lstPlanesEntrenamientoCliente) {
         this.lstPlanesEntrenamientoCliente = lstPlanesEntrenamientoCliente;
     }
 }

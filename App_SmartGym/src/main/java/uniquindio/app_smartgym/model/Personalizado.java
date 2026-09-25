@@ -1,6 +1,6 @@
 package uniquindio.app_smartgym.model;
 
-public class Personalizado extends uniquindio.app_smartgym.Model.PlanEntrenamiento {
+public class Personalizado extends uniquindio.app_smartgym.model.PlanEntrenamiento {
 
     private int cantidadSesiones;
     private String especialidadRequerida;
