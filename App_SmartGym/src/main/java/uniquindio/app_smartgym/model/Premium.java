@@ -1,7 +1,7 @@
 package uniquindio.app_smartgym.model;
 
 public class Premium extends uniquindio.app_smartgym.Model.PlanEntrenamiento {
-    
+
     public Premium(String codigo) {
         super(codigo,
                 "plan Premium",
