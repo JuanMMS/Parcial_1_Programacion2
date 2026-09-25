@@ -140,6 +140,9 @@ public class Gimnasio {
                 cliente.setEdad(actualizado.getEdad());
                 cliente.setTelefono(actualizado.getTelefono());
                 cliente.setCorreoElectronico(actualizado.getCorreoElectronico());
+                cliente.setFechaRegistro(actualizado.getFechaRegistro());
+                centinela = true;
+                break;
             }
         }
         return centinela;
@@ -247,6 +250,7 @@ public class Gimnasio {
                 planEntrenamiento.setValorMensual(planEntrenamientoNuevo.getValorMensual());
                 planEntrenamiento.setEstado(planEntrenamientoNuevo.getEstado());
                 centinela = true;
+                break;
             }
         }
         return centinela;
@@ -302,16 +306,102 @@ public class Gimnasio {
                 servicioAdicionalLista.setPrecio(servicioAdicional.getPrecio());
                 servicioAdicionalLista.setDisponibilidad(servicioAdicional.getDisponibilidad());
                 centinela = true;
+                break;
             }
         }
         return centinela;
     }
 
+    /**
+     * Metodo para agregar una inscripcion al gimnasio, parte del CRUD
+     * @param inscripcion
+     * @return Boolean
+     */
+    public boolean agregarInscripcion(Inscripcion inscripcion){
+        boolean centinela = false;
+        if(!listInscripciones.contains(inscripcion)){
+            listInscripciones.add(inscripcion);
+            centinela = true;
+        }
+        return centinela;
+    }
 
-    public void CRUDServiciosAdicionales() {}
-    public void CRUDInscripcion() {}
+    /**
+     * Metodo para eliminar una inscripcion del gimnasio, parte del CRUD
+     * @param codigo
+     * @return
+     */
+    public boolean eliminarInscripcion(String codigo) {
+        boolean centinela = false;
+        for (Inscripcion inscripcion : listInscripciones) {
+            if (inscripcion.getiD().equals(codigo)) {
+                listInscripciones.remove(inscripcion);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Matodo para actualizar una inscripcion del gimnasio, parte del crud
+     * @param codigo
+     * @param inscripcionActualizada
+     * @return
+     */
+    public boolean actualizarInscripcion(String codigo, Inscripcion inscripcionActualizada) {
+        boolean centinela = false;
+        for (Inscripcion inscripcion : listInscripciones) {
+            if (inscripcion.getiD().equals(codigo)) {
+                inscripcion.setiD(inscripcionActualizada.getiD());
+                inscripcion.setFechaInscripcion(inscripcionActualizada.getFechaInscripcion());
+                inscripcion.setValorAPagar(inscripcionActualizada.getValorAPagar());
+                inscripcion.setCliente(inscripcionActualizada.getCliente());
+                inscripcion.setPlanEntrenamiento(inscripcionActualizada.getPlanEntrenamiento());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+
+    }
+
+
     public void BuscarClientePorTelefono() {}
-    public void ValidarNumeroPerfecto() {}
+
+    /**
+     * Metodo para validar si un numero es perfecto
+     * @param numeroPerfecto
+     * @return boolean
+     */
+    public boolean ValidarNumeroPerfecto(String numeroPerfecto) {
+        boolean centinela = false;
+        if (numeroPerfecto == null || numeroPerfecto.isEmpty()) {
+            centinela = false;
+        }
+        try {
+            String numeroLimpio = numeroPerfecto.replaceAll("[^0-9]", "");
+            if(numeroLimpio.isEmpty()){
+                centinela = false;
+            }
+            long numero = Long.parseLong(numeroLimpio);
+            if(numero<=1){
+                centinela = false;
+            }
+            long sumaDivisores = 0;
+
+            for(long i=1; i<=numero/2 ;i++){
+                if(numero%i==0){
+                    sumaDivisores+=i;
+                }
+            }
+            return sumaDivisores == numero;
+        } catch(NumberFormatException e) {
+            centinela = false;
+        }
+        return centinela;
+    }
+
     public void CalcularIngresosPeriodo() {}
 
     // Getters y Setters
