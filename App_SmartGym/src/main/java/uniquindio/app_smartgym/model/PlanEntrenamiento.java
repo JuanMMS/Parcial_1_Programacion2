@@ -35,7 +35,7 @@ public class PlanEntrenamiento {
      * Metodo para calcular el valor total del plan segun la duracion
      * @return valor total
      */
-    public double calcularValorTotal(){
+    public double CalcularValorTotal(){
         return duracionMeses * valorMensual;
     }
 
@@ -105,4 +105,6 @@ public class PlanEntrenamiento {
     public void setListServiciosAdicionalesPlanEntrenamiento(ArrayList<ServicioAdicional> listServiciosAdicionalesPlanEntrenamiento) {
         this.listServiciosAdicionalesPlanEntrenamiento = listServiciosAdicionalesPlanEntrenamiento;
     }
+
+
 }
