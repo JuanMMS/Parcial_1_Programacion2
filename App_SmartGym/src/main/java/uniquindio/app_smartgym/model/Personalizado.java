@@ -10,6 +10,7 @@ public class Personalizado extends uniquindio.app_smartgym.Model.PlanEntrenamien
     public Personalizado(String codigo, int cantidadSesiones, String especialidadRequerida, String objetivosCliente, Entrenador theEntrenadorPersonalizado) {
         super(codigo,
                 "plan personalizado",
+
                 "Este es un plan personalizado, armalo como quieras y con el entrenador que prefieras!",
                 1,
                 80000
@@ -18,6 +19,7 @@ public class Personalizado extends uniquindio.app_smartgym.Model.PlanEntrenamien
         this.especialidadRequerida = especialidadRequerida;
         this.objetivosCliente = objetivosCliente;
         this.theEntrenadorPersonalizado = theEntrenadorPersonalizado;
+
     }
 
     /**
