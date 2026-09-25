@@ -1,19 +1,15 @@
-package uniquindio.app_smartgym.Model;
+package uniquindio.app_smartgym.model;
 
-public class Basico extends PlanEntrenamiento{
-    private String nombre;
-    private String descripcion;
-    private int duracionMeses;
-    private double valorMensual;
-    private uniquindio.app_smartgym.model.Estado estado;
+public class Basico extends uniquindio.app_smartgym.Model.PlanEntrenamiento {
+
+
 
     public Basico(String codigo) {
-        super(codigo);
-        this.nombre = "Plan Basico";
-        this.descripcion = "Este es el plan basico, te damos lo basico!";
-        this.duracionMeses = 3;
-        this.valorMensual = 50000;
-        this.estado = uniquindio.app_smartgym.model.Estado.ACTIVO;
+        super(codigo,
+                "plan Basico",
+                "Este es el plan basico",
+                6,
+                50000);
 
     }
 

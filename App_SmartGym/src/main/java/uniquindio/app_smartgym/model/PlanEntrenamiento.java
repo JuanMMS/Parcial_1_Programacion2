@@ -14,11 +14,16 @@ public class PlanEntrenamiento {
     /**
      * Metodo constructor de la clase PlanEntrenamiento
      */
-    public PlanEntrenamiento(String codigo)   {
+    public PlanEntrenamiento(String codigo, String nombre, String descripcion, int duracionMeses, double valorMensual)   {
         this.codigo = codigo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.duracionMeses = duracionMeses;
+        this.valorMensual = valorMensual;
         this.estado = uniquindio.app_smartgym.model.Estado.ACTIVO;
-
     }
+
+
 
 
 
