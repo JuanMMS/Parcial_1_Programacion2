@@ -6,15 +6,30 @@ public class ServicioAdicional {
     private String descripcion;
     private double precio;
     private boolean disponibilidad;
-    private Tipo Tipo;
 
-    public ServicioAdicional(String codigo, String nombre, String descripcion, double precio, boolean disponibilidad) {
+    // Relación con el Enumerador Tipo
+    private Tipo tipo;
+
+    /*
+    Constructor:
+    Ajustado para incluir el parámetro Tipo según la firma del diagrama UML:
+    + ServicioAdicional(String codigo, String nombre, String descripcion, double precio, boolean disponibilidad, Tipo tipo)
+    */
+    public ServicioAdicional(String codigo, String nombre, String descripcion, double precio, boolean disponibilidad, Tipo tipo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.disponibilidad = disponibilidad;
+        this.tipo = tipo;
     }
+
+    // Falta llenarlo
+    
+    public void calculoPagoFinal() {
+    }
+
+    // Getters y Setters
 
     public String getCodigo() {
         return codigo;
@@ -54,5 +69,13 @@ public class ServicioAdicional {
 
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
     }
 }
