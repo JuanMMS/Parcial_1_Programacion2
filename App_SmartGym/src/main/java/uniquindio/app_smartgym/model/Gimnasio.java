@@ -23,7 +23,7 @@ public class Gimnasio {
 
     private List<Cliente> listClientes;
     private List<Entrenador> listEntrenadores;
-    private List<uniquindio.app_smartgym.Model.PlanEntrenamiento> listPlanesEntrenamientos;
+    private List<uniquindio.app_smartgym.model.PlanEntrenamiento> listPlanesEntrenamientos;
     private List<ServicioAdicional> listServiciosAdicionales;
     private List<Inscripcion> listInscripciones;
 
@@ -85,7 +85,7 @@ public class Gimnasio {
      */
     public boolean agregarCliente(Cliente cliente) {
         boolean centinela = false;
-        if (!verificarCliente(cliente.getDocumentoIdentidad()){
+        if (!verificarCliente(cliente.getDocumentoIdentidad())){
             listClientes.add(cliente);
             centinela = true;
         }
@@ -269,11 +269,11 @@ public class Gimnasio {
     }
 
 
-    public List<uniquindio.app_smartgym.Model.PlanEntrenamiento> getLstPlanesEntrenamientos() {
+    public List<uniquindio.app_smartgym.model.PlanEntrenamiento> getLstPlanesEntrenamientos() {
         return listPlanesEntrenamientos;
     }
 
-    public void setListPlanesEntrenamientos(List<uniquindio.app_smartgym.Model.PlanEntrenamiento> lstPlanesEntrenamientos) {
+    public void setListPlanesEntrenamientos(List<uniquindio.app_smartgym.model.PlanEntrenamiento> lstPlanesEntrenamientos) {
         this.listPlanesEntrenamientos = lstPlanesEntrenamientos;
 
     }
