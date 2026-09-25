@@ -1,5 +1,7 @@
 package uniquindio.app_smartgym.model;
 
+import uniquindio.app_smartgym.model.Factory.FactoryPlanEntrenamiento;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -17,11 +19,11 @@ public class Gimnasio {
     private String paginaWeb;
 
     // Relaciones de composición/asociación
-    private List<Cliente> lstClientes;
-    private List<Entrenador> lstEntrenadores;
-    private List<AbstractPlanEntrenamiento> lstPlanesEntrenamientos;
-    private List<ServicioAdicional> lstServiciosAdicionales;
-    private List<Inscripcion> lstInscripciones;
+    private List<Cliente> listClientes;
+    private List<Entrenador> listEntrenadores;
+    private List<uniquindio.app_smartgym.Model.PlanEntrenamiento> listPlanesEntrenamientos;
+    private List<ServicioAdicional> listServiciosAdicionales;
+    private List<Inscripcion> listInscripciones;
 
     // Relación de asociación (Factory)
     private FactoryPlanEntrenamiento factoryPlanEntrenamiento;
@@ -41,11 +43,11 @@ public class Gimnasio {
         this.paginaWeb = "www.smartgym.com";
 
         // Inicialización de las listas de las relaciones
-        this.lstClientes = new ArrayList<>();
-        this.lstEntrenadores = new ArrayList<>();
-        this.lstPlanesEntrenamientos = new ArrayList<>();
-        this.lstServiciosAdicionales = new ArrayList<>();
-        this.lstInscripciones = new ArrayList<>();
+        this.listClientes = new ArrayList<>();
+        this.listEntrenadores = new ArrayList<>();
+        this.listPlanesEntrenamientos = new ArrayList<>();
+        this.listServiciosAdicionales = new ArrayList<>();
+        this.listInscripciones = new ArrayList<>();
     }
 
     /*
@@ -59,8 +61,137 @@ public class Gimnasio {
         return instancia;
     }
 
-    // Métodos indicados en el diagrama UML
-    public void CRUDClientes() {}
+    /**
+     * Metodo para buscar clientes de un gimnasio, siendo el READ de clientes
+     * @param numeroTelefono
+     * @return Cliente
+     */
+    public Cliente buscarClientePorTelefono(String numeroTelefono){
+        for (Cliente cliente : listClientes) {
+            if (cliente.getTelefono().equals(numeroTelefono)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Metodo para agregar clientes a gimnasio, parte crud
+     * @param cliente
+     * @return Boolean
+     */
+    public boolean agregarCliente(Cliente cliente) {
+        boolean centinela = false;
+        if (!verificarCliente(cliente.getDocumentoIdentidad()){
+            listClientes.add(cliente);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para verificar la existencia de un cliente en la lista de clientes del gimnasio
+     * @param numeroIdentificacion
+     * @return boolean
+     */
+    public boolean verificarCliente(String numeroIdentificacion) {
+        boolean centinela = false;
+        for (Cliente cliente : listClientes) {
+            if (cliente.getDocumentoIdentidad().equals(numeroIdentificacion)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para eliminar cliente determinado de un gimnasio, hace parte del CRUD
+     * @param numeroIdentificacion
+     * @return boolean
+     */
+    public boolean eliminarCLiente(String numeroIdentificacion) {
+        boolean centinela = false;
+        for (Cliente cliente : listClientes) {
+            if (cliente.getDocumentoIdentidad().equals(numeroIdentificacion)) {
+                listClientes.remove(cliente);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean actualizarCliente(String identificacion, Cliente actualizado){
+        boolean centinela = false;
+        for (Cliente cliente : listClientes) {
+            if (cliente.getDocumentoIdentidad().equals(identificacion)) {
+                cliente.setNombreCompleto(actualizado.getNombreCompleto());
+                cliente.setDocumentoIdentidad(actualizado.getDocumentoIdentidad());
+                cliente.setEdad(actualizado.getEdad());
+                cliente.setTelefono(actualizado.getTelefono());
+                cliente.setCorreoElectronico(actualizado.getCorreoElectronico());
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para agregar entrenador a la lista de entrenadores del gimnasio, hace parte del crud
+     * @param entrenador
+     * @return boolean
+     */
+    public boolean agregarEntrenador(Entrenador entrenador) {
+        boolean centinela = false;
+        if(!listEntrenadores.contains(entrenador)){
+            listEntrenadores.add(entrenador);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+
+    /**
+     * Metodo para eliminar entenadores del gimnasio, hace parte del crud
+     * @param numeroIdentificacion
+     * @return boolean
+     */
+    public boolean eliminarEntrenador(String numeroIdentificacion) {
+        boolean centinela = false;
+        for (Entrenador entrenador : listEntrenadores) {
+            if(entrenador.getIdentificacion().equals(numeroIdentificacion)){
+                listEntrenadores.remove(entrenador);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+    /**
+     * Metodo para actualizar los datos de un entrenador existente en gimnasio, hace parte del CRUD
+     * @param identificacion
+     * @param entrenador
+     * @return boolean
+     */
+    public boolean actualizarEntrenador(String identificacion, Entrenador entrenador) {
+        boolean centinela = false;
+        for(Entrenador entrenadorDeLista : listEntrenadores){
+            if(entrenadorDeLista.getIdentificacion().equals(identificacion)){
+                entrenador.setIdentificacion(identificacion);
+                entrenador.setNombre(entrenador.getNombre());
+                entrenador.setEspecialidad(entrenador.getEspecialidad());
+                entrenador.setTelefono(entrenador.getTelefono());
+                entrenador.setTarifaSesion(entrenador.getTarifaSesion());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+
+
     public void CRUDPlanesEntrenamiento() {}
     public void CRUDEntrenador() {}
     public void CRUDServiciosAdicionales() {}
@@ -118,44 +249,44 @@ public class Gimnasio {
         this.paginaWeb = paginaWeb;
     }
 
-    public List<Cliente> getLstClientes() {
-        return lstClientes;
+    public List<Cliente> getiLstClientes() {
+        return listClientes;
     }
 
     public void setLstClientes(List<Cliente> lstClientes) {
-        this.lstClientes = lstClientes;
+        this.listClientes = lstClientes;
     }
 
     public List<Entrenador> getLstEntrenadores() {
-        return lstEntrenadores;
+        return listEntrenadores;
     }
 
     public void setLstEntrenadores(List<Entrenador> lstEntrenadores) {
-        this.lstEntrenadores = lstEntrenadores;
+        this.listEntrenadores = lstEntrenadores;
     }
 
-    public List<AbstractPlanEntrenamiento> getLstPlanesEntrenamientos() {
-        return lstPlanesEntrenamientos;
+    public List<uniquindio.app_smartgym.Model.PlanEntrenamiento> getLstPlanesEntrenamientos() {
+        return listPlanesEntrenamientos;
     }
 
-    public void setLstPlanesEntrenamientos(List<AbstractPlanEntrenamiento> lstPlanesEntrenamientos) {
-        this.lstPlanesEntrenamientos = lstPlanesEntrenamientos;
+    public void setLstPlanesEntrenamientos(List<uniquindio.app_smartgym.Model.PlanEntrenamiento> lstPlanesEntrenamientos) {
+        this.listPlanesEntrenamientos = lstPlanesEntrenamientos;
     }
 
     public List<ServicioAdicional> getLstServiciosAdicionales() {
-        return lstServiciosAdicionales;
+        return listServiciosAdicionales;
     }
 
     public void setLstServiciosAdicionales(List<ServicioAdicional> lstServiciosAdicionales) {
-        this.lstServiciosAdicionales = lstServiciosAdicionales;
+        this.listServiciosAdicionales = lstServiciosAdicionales;
     }
 
     public List<Inscripcion> getLstInscripciones() {
-        return lstInscripciones;
+        return listInscripciones;
     }
 
     public void setLstInscripciones(List<Inscripcion> lstInscripciones) {
-        this.lstInscripciones = lstInscripciones;
+        this.listInscripciones = lstInscripciones;
     }
 
     public FactoryPlanEntrenamiento getFactoryPlanEntrenamiento() {
