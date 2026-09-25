@@ -367,9 +367,41 @@ public class Gimnasio {
     }
 
 
-    public void CRUDInscripcion() {}
     public void BuscarClientePorTelefono() {}
-    public void ValidarNumeroPerfecto() {}
+
+    /**
+     * Metodo para validar si un numero es perfecto
+     * @param numeroPerfecto
+     * @return boolean
+     */
+    public boolean ValidarNumeroPerfecto(String numeroPerfecto) {
+        boolean centinela = false;
+        if (numeroPerfecto == null || numeroPerfecto.isEmpty()) {
+            centinela = false;
+        }
+        try {
+            String numeroLimpio = numeroPerfecto.replaceAll("[^0-9]", "");
+            if(numeroLimpio.isEmpty()){
+                centinela = false;
+            }
+            long numero = Long.parseLong(numeroLimpio);
+            if(numero<=1){
+                centinela = false;
+            }
+            long sumaDivisores = 0;
+
+            for(long i=1; i<=numero/2 ;i++){
+                if(numero%i==0){
+                    sumaDivisores+=i;
+                }
+            }
+            return sumaDivisores == numero;
+        } catch(NumberFormatException e) {
+            centinela = false;
+        }
+        return centinela;
+    }
+
     public void CalcularIngresosPeriodo() {}
 
     // Getters y Setters
