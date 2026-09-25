@@ -1,6 +1,10 @@
 package uniquindio.app_smartgym.Model;
 
 import uniquindio.app_smartgym.model.Estado;
+import uniquindio.app_smartgym.model.Inscripcion;
+import uniquindio.app_smartgym.model.ServicioAdicional;
+
+import java.util.ArrayList;
 
 public class PlanEntrenamiento {
     private String codigo;
@@ -9,7 +13,8 @@ public class PlanEntrenamiento {
     private int duracionMeses;
     private double valorMensual;
     private uniquindio.app_smartgym.model.Estado estado;
-
+    private ArrayList<Inscripcion> listInscripcionesPlanEntrenamiento;
+    private ArrayList<ServicioAdicional> listServiciosAdicionalesPlanEntrenamiento;
 
     /**
      * Metodo constructor de la clase PlanEntrenamiento
@@ -21,10 +26,18 @@ public class PlanEntrenamiento {
         this.duracionMeses = duracionMeses;
         this.valorMensual = valorMensual;
         this.estado = uniquindio.app_smartgym.model.Estado.ACTIVO;
+        this.listInscripcionesPlanEntrenamiento = new ArrayList<>();
+        this.listServiciosAdicionalesPlanEntrenamiento = new ArrayList<>();
     }
 
 
-
+    /**
+     * Metodo para calcular el valor total del plan segun la duracion
+     * @return valor total
+     */
+    public double calcularValorTotal(){
+        return duracionMeses * valorMensual;
+    }
 
 
 
@@ -75,5 +88,21 @@ public class PlanEntrenamiento {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public ArrayList<Inscripcion> getListInscripcionesPlanEntrenamiento() {
+        return listInscripcionesPlanEntrenamiento;
+    }
+
+    public void setListInscripcionesPlanEntrenamiento(ArrayList<Inscripcion> listInscripcionesPlanEntrenamiento) {
+        this.listInscripcionesPlanEntrenamiento = listInscripcionesPlanEntrenamiento;
+    }
+
+    public ArrayList<ServicioAdicional> getListServiciosAdicionalesPlanEntrenamiento() {
+        return listServiciosAdicionalesPlanEntrenamiento;
+    }
+
+    public void setListServiciosAdicionalesPlanEntrenamiento(ArrayList<ServicioAdicional> listServiciosAdicionalesPlanEntrenamiento) {
+        this.listServiciosAdicionalesPlanEntrenamiento = listServiciosAdicionalesPlanEntrenamiento;
     }
 }
