@@ -49,9 +49,9 @@ public class Gimnasio {
     }
 
     /*
-     * 3. Método público estático para obtener la única instancia (Singleton)
+     * Singleton
      */
-    
+
     public static Gimnasio getInstance() {
         if (instancia == null) {
             instancia = new Gimnasio();
