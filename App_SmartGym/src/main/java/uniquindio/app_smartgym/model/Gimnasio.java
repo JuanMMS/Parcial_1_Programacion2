@@ -1,5 +1,5 @@
 package uniquindio.app_smartgym.model;
-
+import uniquindio.app_smartgym.model.Factory.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class Gimnasio {
     // Relaciones de composición/asociación
     private List<Cliente> lstClientes;
     private List<Entrenador> lstEntrenadores;
-    private List<AbstractPlanEntrenamiento> lstPlanesEntrenamientos;
+    private List<PlanEntrenamiento> lstPlanesEntrenamientos;
     private List<ServicioAdicional> lstServiciosAdicionales;
     private List<Inscripcion> lstInscripciones;
 
@@ -134,11 +134,11 @@ public class Gimnasio {
         this.lstEntrenadores = lstEntrenadores;
     }
 
-    public List<AbstractPlanEntrenamiento> getLstPlanesEntrenamientos() {
+    public List<PlanEntrenamiento> getLstPlanesEntrenamientos() {
         return lstPlanesEntrenamientos;
     }
 
-    public void setLstPlanesEntrenamientos(List<AbstractPlanEntrenamiento> lstPlanesEntrenamientos) {
+    public void setLstPlanesEntrenamientos(List<PlanEntrenamiento> lstPlanesEntrenamientos) {
         this.lstPlanesEntrenamientos = lstPlanesEntrenamientos;
     }
 

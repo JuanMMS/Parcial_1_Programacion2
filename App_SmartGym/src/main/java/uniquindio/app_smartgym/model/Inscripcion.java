@@ -10,7 +10,7 @@ public class Inscripcion {
 
     // Relaciones de asociación (Multiplicidad '1' según las líneas del diagrama)
     private Cliente cliente;
-    private AbstractPlanEntrenamiento planEntrenamiento;
+    private PlanEntrenamiento planEntrenamiento;
     private Entrenador entrenador;
 
     // Relaciones de asociación (Multiplicidad 'n' según las líneas del diagrama)
@@ -21,7 +21,7 @@ public class Inscripcion {
     Ajustado estrictamente a la firma que aparece en la caja del UML:
     + Inscripcion(date fechaInscripcion, double valorAPagar, Cliente cliente, PlanEntrenamiento planEntrenamiento)
     */
-    public Inscripcion(LocalDate fechaInscripcion, double valorAPagar, Cliente cliente, AbstractPlanEntrenamiento planEntrenamiento) {
+    public Inscripcion(LocalDate fechaInscripcion, double valorAPagar, Cliente cliente, PlanEntrenamiento planEntrenamiento) {
         this.fechaInscripcion = fechaInscripcion;
         this.valorAPagar = valorAPagar;
         this.cliente = cliente;
@@ -62,11 +62,11 @@ public class Inscripcion {
         this.cliente = cliente;
     }
 
-    public AbstractPlanEntrenamiento getPlanEntrenamiento() {
+    public PlanEntrenamiento getPlanEntrenamiento() {
         return planEntrenamiento;
     }
 
-    public void setPlanEntrenamiento(AbstractPlanEntrenamiento planEntrenamiento) {
+    public void setPlanEntrenamiento(PlanEntrenamiento planEntrenamiento) {
         this.planEntrenamiento = planEntrenamiento;
     }
 

@@ -6,7 +6,7 @@ public abstract class FactoryPlanEntrenamiento {
      * @param codigo
      * @return Plan Entrenamiento
      */
-    public abstract uniquindio.app_smartgym.Model.PlanEntrenamiento crearPlanEntrenamiento(String codigo);
+    public abstract uniquindio.app_smartgym.model.PlanEntrenamiento crearPlanEntrenamiento(String codigo);
 
 
 }

@@ -1,6 +1,6 @@
 package uniquindio.app_smartgym.model;
 
-public class Basico extends uniquindio.app_smartgym.Model.PlanEntrenamiento {
+public class Basico extends uniquindio.app_smartgym.model.PlanEntrenamiento {
 
 
 

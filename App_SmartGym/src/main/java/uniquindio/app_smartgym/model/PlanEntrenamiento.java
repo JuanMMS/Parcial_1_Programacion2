@@ -1,4 +1,4 @@
-package uniquindio.app_smartgym.Model;
+package uniquindio.app_smartgym.model;
 
 import uniquindio.app_smartgym.model.Estado;
 import uniquindio.app_smartgym.model.Inscripcion;
