@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Gimnasio {
+
+    // 1. Instancia estática privada (Singleton)
+
+    private static Gimnasio instancia;
+
     private String nombreComercial;
     private String nit;
     private String direccion;
@@ -11,30 +16,47 @@ public class Gimnasio {
     private String correoElectronico;
     private String paginaWeb;
 
-    // Relaciones de composición/asociación (Diamantes negros en el UML hacia listas de elementos 'n')
+    // Relaciones de composición/asociación
     private List<Cliente> lstClientes;
     private List<Entrenador> lstEntrenadores;
     private List<AbstractPlanEntrenamiento> lstPlanesEntrenamientos;
     private List<ServicioAdicional> lstServiciosAdicionales;
     private List<Inscripcion> lstInscripciones;
 
-    // Relación de asociación (Multiplicidad 1)
+    // Relación de asociación (Factory)
     private FactoryPlanEntrenamiento factoryPlanEntrenamiento;
 
-    public Gimnasio(String nombreComercial, String nit, String direccion, String telefono, String correoElectronico, String paginaWeb) {
-        this.nombreComercial = nombreComercial;
-        this.nit = nit;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correoElectronico = correoElectronico;
-        this.paginaWeb = paginaWeb;
+    /*
+     * 2. Constructor PRIVADO: Evita que se creen instancias con "new" desde fuera de la clase.
+     * Al ser un Singleton de un gimnasio específico, podemos inicializarlo con valores por defecto.
+     */
 
-        // Inicialización de las listas de las relaciones para evitar NullPointerException
+    private Gimnasio() {
+        // Datos quemados por defecto (Según el contexto del documento)
+        this.nombreComercial = "SmartGym";
+        this.nit = "900.123.456-7";
+        this.direccion = "Calle Principal 123";
+        this.telefono = "3001234567";
+        this.correoElectronico = "contacto@smartgym.com";
+        this.paginaWeb = "www.smartgym.com";
+
+        // Inicialización de las listas de las relaciones
         this.lstClientes = new ArrayList<>();
         this.lstEntrenadores = new ArrayList<>();
         this.lstPlanesEntrenamientos = new ArrayList<>();
         this.lstServiciosAdicionales = new ArrayList<>();
         this.lstInscripciones = new ArrayList<>();
+    }
+
+    /*
+     * 3. Método público estático para obtener la única instancia (Singleton)
+     */
+    
+    public static Gimnasio getInstance() {
+        if (instancia == null) {
+            instancia = new Gimnasio();
+        }
+        return instancia;
     }
 
     // Métodos indicados en el diagrama UML
