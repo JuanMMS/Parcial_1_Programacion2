@@ -2,10 +2,10 @@ package uniquindio.app_smartgym.model;
 
 public class Personalizado extends uniquindio.app_smartgym.model.PlanEntrenamiento {
 
-    private int cantidadSesiones;
+    private static int cantidadSesiones;
     private String especialidadRequerida;
     private String objetivosCliente;
-    private Entrenador theEntrenadorPersonalizado;
+    private static Entrenador theEntrenadorPersonalizado;
 
     public Personalizado(String codigo, int cantidadSesiones, String especialidadRequerida, String objetivosCliente, Entrenador theEntrenadorPersonalizado) {
         super(codigo,
@@ -27,7 +27,7 @@ public class Personalizado extends uniquindio.app_smartgym.model.PlanEntrenamien
      * @return valor del plan personalizado
      */
     public double CalcularValorPersonalizado() {
-        return  calcularValorTotal() + cantidadSesiones * theEntrenadorPersonalizado.getTarifaSesion();
+        return  CalcularValorTotal() + cantidadSesiones * theEntrenadorPersonalizado.getTarifaSesion();
     }
 
 

@@ -3,6 +3,7 @@ package uniquindio.app_smartgym.model;
 
 import uniquindio.app_smartgym.model.Factory.FactoryPlanEntrenamiento;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -402,7 +403,30 @@ public class Gimnasio {
         return centinela;
     }
 
-    public void CalcularIngresosPeriodo() {}
+    /**
+     * Metodo para calcular los ingresos del gimnasio en un periodo de tiempo definido
+     * @param fechaInicio
+     * @param fechaFin
+     * @return double total ingresos
+     */
+    public double CalcularIngresosPeriodo(LocalDate fechaInicio, LocalDate fechaFin) {
+        if(fechaInicio == null || fechaFin == null) {
+            throw new IllegalArgumentException("La fecha inicial no puede ser nula");
+        }
+        if (fechaInicio.isAfter(fechaFin)) {
+            throw new IllegalArgumentException("La fecha de inicio no puede ser posterior a la fecha de fin");
+        }
+
+        double totalIngresos = 0.0;
+        for(Inscripcion inscripcion : listInscripciones) {
+            LocalDate fechaInscripcion = inscripcion.getFechaInscripcion();
+
+            if(fechaInscripcion != null && (!fechaInscripcion.isBefore(fechaFin) && !fechaInscripcion.isAfter(fechaInicio))) {
+                totalIngresos += inscripcion.getValorAPagar();
+            }
+        }
+        return totalIngresos;
+    }
 
     // Getters y Setters
     public String getNombreComercial() {
@@ -453,24 +477,24 @@ public class Gimnasio {
         this.paginaWeb = paginaWeb;
     }
 
-    public List<Cliente> getiLstClientes() {
+    public List<Cliente> getListClientes() {
         return listClientes;
     }
 
-    public void setLstClientes(List<Cliente> lstClientes) {
+    public void setListClientes(List<Cliente> lstClientes) {
         this.listClientes = lstClientes;
     }
 
-    public List<Entrenador> getLstEntrenadores() {
+    public List<Entrenador> getiLstEntrenadores() {
         return listEntrenadores;
     }
 
-    public void setLstEntrenadores(List<Entrenador> lstEntrenadores) {
+    public void setListEntrenadores(List<Entrenador> lstEntrenadores) {
         this.listEntrenadores = lstEntrenadores;
     }
 
 
-    public List<uniquindio.app_smartgym.model.PlanEntrenamiento> getLstPlanesEntrenamientos() {
+    public List<uniquindio.app_smartgym.model.PlanEntrenamiento> getListPlanesEntrenamientos() {
         return listPlanesEntrenamientos;
     }
 
@@ -479,19 +503,19 @@ public class Gimnasio {
 
     }
 
-    public List<ServicioAdicional> getLstServiciosAdicionales() {
+    public List<ServicioAdicional> getListServiciosAdicionales() {
         return listServiciosAdicionales;
     }
 
-    public void setLstServiciosAdicionales(List<ServicioAdicional> lstServiciosAdicionales) {
+    public void setListServiciosAdicionales(List<ServicioAdicional> lstServiciosAdicionales) {
         this.listServiciosAdicionales = lstServiciosAdicionales;
     }
 
-    public List<Inscripcion> getLstInscripciones() {
+    public List<Inscripcion> getListInscripciones() {
         return listInscripciones;
     }
 
-    public void setLstInscripciones(List<Inscripcion> lstInscripciones) {
+    public void setListInscripciones(List<Inscripcion> lstInscripciones) {
         this.listInscripciones = lstInscripciones;
     }
 
