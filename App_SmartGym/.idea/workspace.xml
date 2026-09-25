@@ -4,18 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6d1951a-0099-47e1-86d6-a3134d0f27ae" name="Changes" comment="" />
+    <list default="true" id="f6d1951a-0099-47e1-86d6-a3134d0f27ae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/app_smartgym/model/Gimnasio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/app_smartgym/model/Gimnasio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniquindio/app_smartgym/model/ServicioAdicional.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniquindio/app_smartgym/model/ServicioAdicional.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="dev_Juanma" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
+<<<<<<< Updated upstream
+=======
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "JuanMMS"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/JuanMMS/Parcial_1_Programacion2.git",
+    "accountId": "1b1070a1-e338-40e7-a491-221a4c5c0664"
+  }
+}]]></component>
+>>>>>>> Stashed changes
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3Jn3HFUiKV2tFb6PFenknaomTU7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,7 +66,11 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+<<<<<<< Updated upstream
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+=======
+>>>>>>> Stashed changes
+    "git-widget-placeholder": "dev__Juanma",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "F:/Juanma/Universidad/Reingreso (tercer semestre)/Programación II/Proyectos/Parcial_1_Programacion2/App_SmartGym",
     "node.js.detected.package.eslint": "true",
@@ -33,6 +78,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -53,6 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1790282917788</updated>
       <workItem from="1790282918753" duration="2984000" />
+      <workItem from="1790332392539" duration="2978000" />
     </task>
     <servers />
   </component>
